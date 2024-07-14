@@ -9,12 +9,12 @@ class Solution {
         
         for(int i = 0; i < s.length(); i++){
             if(map.containsKey(s.charAt(i)) && map.get(s.charAt(i)) != t.charAt(i) || map2.containsKey(t.charAt(i)) && map2.get(t.charAt(i)) != s.charAt(i)){
-                System.out.print(map);
+               // System.out.print(map);
                 return false;
             }
             map.put(s.charAt(i), t.charAt(i)); 
         }
-        System.out.print(map);
+       // System.out.print(map);
         return true;
     }
 }
