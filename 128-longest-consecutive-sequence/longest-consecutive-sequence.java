@@ -12,13 +12,14 @@ class Solution {
 
         while (i < nums.length) {
             int count = 1;
-                while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
-                    count++;
+            
+            while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
+                count++;
+                i++;
+                
+                 while(i < nums.length - 1 && nums[i] == nums[i + 1] ){
                     i++;
-                    
-                    while(i < nums.length - 1 && nums[i] == nums[i + 1] ){
-                        i++;
-                        }
+                    }
                 }
 
             store = Math.max(count, store);
