@@ -1,31 +1,27 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
-       List<String> result = new ArrayList<>();
-        generate(result, "", n, n);
-        return result;
+       List<String> AL = new ArrayList<String>();
+        generate(n , n ,"", AL);
+        return AL;
     }
 
-    private void generate(List<String> result, String current, int open, int close) {
+    public static void generate( int open, int close , String path ,List<String> AL) {
         if (open == 0 && close == 0) {
-            result.add(current);
+            AL.add(path);
+            return;
+        }
+        if(open > close){
             return;
         }
 
         if (open > 0) {
-            generate(result, current + "(", open - 1, close);
+            generate(open -1 , close , path + "(" , AL);
         }
 
-        if (close > open) {
-            generate(result, current + ")", open, close - 1);
+        if (close > 0) {
+             generate(open  , close - 1 , path + ")" , AL);
         }
     }
 
-    public static void main(String[] args) {
-        Solution generateParentheses = new Solution();
-        int n = 3;
-        List<String> result = generateParentheses.generateParenthesis(n);
-        for (String combination : result) {
-            System.out.println(combination);
-        }
-    }
+
 }
